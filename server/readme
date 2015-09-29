@@ -1,1 +1,8 @@
 Here is TaskMe server source code.
+
+To run it simply execute
+>> play run
+in command line after switching to this project root directory
+and open following address http://localhost:9000/ in your favourite browser
+
+*Play Framework need to be installed
