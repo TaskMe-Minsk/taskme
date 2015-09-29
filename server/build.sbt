@@ -1,11 +1,13 @@
-name := "app"
+name := "taskMe"
 
-version := "1.0-SNAPSHOT"
+version := "1.0"
 
-libraryDependencies ++= Seq(
-  jdbc,
-  anorm,
-  cache
-)     
+lazy val `taskme` = (project in file(".")).enablePlugins(PlayScala)
 
-play.Project.playScalaSettings
+scalaVersion := "2.11.1"
+
+libraryDependencies ++= Seq( jdbc , anorm , cache , ws )
+
+libraryDependencies += "com.google.code.gson" % "gson" % "2.3.1"
+
+unmanagedResourceDirectories in Test <+=  baseDirectory ( _ /"target/web/public/test" )  
