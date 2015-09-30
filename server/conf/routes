@@ -3,10 +3,12 @@
 # ~~~~
 
 # Home page
-GET        /                    controllers.GenericController.about
-GET        /task/:id            controllers.TaskController.getTaskById(id: String)
+GET         /                    controllers.GenericController.about
+POST        /                    controllers.GenericController.about
+GET         /task/:id            controllers.TaskController.getTaskById(id: String)
+POST        /task                controllers.TaskController.submitNewTask()
 
 # Map static resources from the /public folder to the /assets URL path
-GET        /assets/*file        controllers.Assets.at(path="/public", file)
+GET         /assets/*file        controllers.Assets.at(path="/public", file)
 
     

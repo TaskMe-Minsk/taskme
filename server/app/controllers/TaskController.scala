@@ -22,10 +22,11 @@ object TaskController extends Controller {
   }
 
   def submitNewTask() = Action { request =>
-    request.body.asText.map( bodyText => {
-      val newTask = gson.fromJson(bodyText, TypeToken.get(Task.getClass).getType)
-      taskRepo.createNewTask(newTask)
-      Created
+    request.body.asJson.map( bodyJsVal => {
+      val taskString = bodyJsVal.toString()
+      val newTask: Task = gson.fromJson(taskString, classOf[Task])
+      val createdId = taskRepo.createNewTask(newTask)
+      Created("").withHeaders(("Location", s"/task/$createdId"))
     }).getOrElse(
       BadRequest("There is no task entity in the request body")
     )
