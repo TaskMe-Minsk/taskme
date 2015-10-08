@@ -10,7 +10,7 @@ import task.{StubTaskRepository, TaskRepository}
  * @author Ivan Zhamoidzin
  */
 object TaskController extends Controller {
-  val taskRepo: TaskRepository = new StubTaskRepository()
+  val taskRepo: TaskRepository = new StubTaskRepository
   val gson = new Gson()
 
   def getTaskById(id: String) = Action {

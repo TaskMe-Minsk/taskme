@@ -8,7 +8,7 @@ case class Task(id: String,
                 created: Long,
                 updated: Long,
                 originator: Originator,
-                category: Category,
+                category: CategoryPreview,
                 title: String,
                 details: String,
                 location: Location,
@@ -30,7 +30,7 @@ case class Originator(id: String, name: String, userpic: String) extends Identif
  * @param id - foreign key to category itself
  * @param name - human readable category name
  */
-case class Category(id: String, name: String) extends Identifiable
+case class CategoryPreview(id: String, name: String) extends Identifiable
 
 /**
  * Represents the exact place where the task is desired to be done
