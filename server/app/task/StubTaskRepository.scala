@@ -41,4 +41,12 @@ class StubTaskRepository extends TaskRepository {
     tasks += newId -> task.copy(id = newId, originator = defaultOriginator)
     newId
   }
+
+  override def getAllTasks: List[Task] = {
+    tasks.values.toList.sortBy(_.updated)
+  }
+
+  override def getAllTasks(categoryId: String): List[Task] = {
+    tasks.values.toList.filter(categoryId equals _.category.id).sortBy(_.updated)
+  }
 }

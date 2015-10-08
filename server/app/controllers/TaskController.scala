@@ -21,7 +21,7 @@ object TaskController extends Controller {
     )
   }
 
-  def submitNewTask() = Action { request =>
+  def submitNewTask = Action { request =>
     request.body.asJson.map( bodyJsVal => {
       val taskString = bodyJsVal.toString()
       val newTask: Task = gson.fromJson(taskString, classOf[Task])
@@ -30,6 +30,14 @@ object TaskController extends Controller {
     }).getOrElse(
       BadRequest("There is no task entity in the request body")
     )
+  }
+
+  def taskList = Action {
+    Ok(gson.toJson( taskRepo.getAllTasks ))
+  }
+
+  def taskList(categoryId: String) = Action {
+    Ok(gson.toJson( taskRepo.getAllTasks(categoryId) ))
   }
 
   def editTask = Action { request =>

@@ -4,9 +4,10 @@
 
 # Home page
 GET         /                    controllers.GenericController.about
-POST        /                    controllers.GenericController.about
 GET         /task/:id            controllers.TaskController.getTaskById(id: String)
 POST        /task                controllers.TaskController.submitNewTask()
+GET         /tasks               controllers.TaskController.taskList
+GET         /tasks/:categoryId   controllers.TaskController.taskList(categoryId: String)
 PUT         /task                controllers.TaskController.editTask()
 
 # Map static resources from the /public folder to the /assets URL path
