@@ -31,4 +31,8 @@ object TaskController extends Controller {
       BadRequest("There is no task entity in the request body")
     )
   }
+
+  def editTask = Action { request =>
+    Ok("Not implemented yet");
+  }
 }
