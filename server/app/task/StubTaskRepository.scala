@@ -37,6 +37,7 @@ class StubTaskRepository extends TaskRepository {
   }
 
   override def createNewTask(task: Task): String = {
+    // todo check category in service
     val newId = UUID.randomUUID().toString
     tasks += newId -> task.copy(id = newId, originator = defaultOriginator)
     newId
