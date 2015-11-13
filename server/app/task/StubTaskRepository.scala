@@ -11,7 +11,7 @@ class StubTaskRepository extends TaskRepository {
   var tasks = Map[String, Task]()
 
   val defaultOriginator = Originator("405", "Luke Skywalker", "http://www.masterskywalker.net/wp-content/uploads/2014/01/luke_anh2.jpg")
-  val defaultCategory = Category("1", "Smuggling")
+  val defaultCategory = CategoryPreview("1", "Smuggling")
   val defaultLocation = Location("Space cantina", 25.7435F, -19.0324F)
   val defaultDateTime = DateTime("04-05-2016", "7:00", "7:15")
   val defaultTask = Task( "default",
@@ -37,6 +37,7 @@ class StubTaskRepository extends TaskRepository {
   }
 
   override def createNewTask(task: Task): String = {
+    // todo check category in service
     val newId = UUID.randomUUID().toString
     tasks += newId -> task.copy(id = newId, originator = defaultOriginator)
     newId
