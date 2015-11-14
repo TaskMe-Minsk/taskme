@@ -1,0 +1,15 @@
+<ion-view view-title="Опишите задачу">
+    <ion-content class="padding">
+        <form ng-submit="submit()" name="form" ng-controller="TaskCtrl" novalidate>
+            <ion-list>
+                <i class="icon ion-information-circled"/>
+                Детали задачи
+                <div>
+                    {{task.details && task.details.size > 0 ? task.details: 'Расскажите подробнее, что нужно
+                    сделать'}}
+                    <a class="button button-icon icon ion-plus" href="#/tab/create/details></a>
+                </div>
+            </ion-list>
+        </form>
+    </ion-content>
+</ion-view>
