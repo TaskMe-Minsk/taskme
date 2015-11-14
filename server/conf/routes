@@ -6,7 +6,7 @@
 GET         /                    controllers.GenericController.about
 GET         /task/:id            controllers.TaskController.getTaskById(id: String)
 POST        /task                controllers.TaskController.submitNewTask()
-GET         /tasks               controllers.TaskController.taskList
+GET         /tasks               controllers.TaskController.allTaskList()
 GET         /tasks/:categoryId   controllers.TaskController.taskList(categoryId: String)
 PUT         /task                controllers.TaskController.editTask()
 GET         /categories          controllers.CategoryController.getListOfAllCategories
