@@ -32,7 +32,7 @@ object TaskController extends Controller {
     )
   }
 
-  def taskList = Action {
+  def allTaskList() = Action {
     Ok(gson.toJson( taskRepo.getAllTasks ))
   }
 
