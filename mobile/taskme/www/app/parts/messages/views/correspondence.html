@@ -1,0 +1,20 @@
+<ion-view title="Correspondence">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-content class="has-header">
+    <!--
+      This template loads for the 'tab.friend-detail' state (app.js)
+      'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+      The FriendsCtrl pulls data from the Friends service (service.js)
+      The Friends service returns an array of friend data
+    -->
+    <img ng-src="{{chat.face}}" style="width: 64px; height: 64px">
+    <p>
+      {{chat.lastText}}
+    </p>
+  </ion-content>
+</ion-view>
+
+
+

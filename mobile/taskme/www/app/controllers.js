@@ -31,4 +31,9 @@ angular.module('taskme.controllers', [])
         $scope.settings = {
             enableFriends: true
         };
+    })
+    .controller('MainCtrl', function ($scope,   $ionicHistory) {
+//        $ionicHistory.nextViewOptions({
+//             disableBack: true
+//        });
     });
