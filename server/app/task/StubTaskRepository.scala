@@ -50,4 +50,18 @@ class StubTaskRepository extends TaskRepository {
   override def getAllTasks(categoryId: String): List[Task] = {
     tasks.values.toList.filter(categoryId equals _.category.id).sortBy(_.updated)
   }
+
+  override def editTask(updatedTask: Task): Option[String] = {
+    tasks.get(updatedTask.id).map(t => {
+      tasks += t.id -> t.copy(
+        updated = System.currentTimeMillis(),
+        title = updatedTask.title,
+        details = updatedTask.details,
+        location = updatedTask.location,
+        dateTime = updatedTask.dateTime,
+        category = updatedTask.category
+      )
+      t.id
+    })
+  }
 }
