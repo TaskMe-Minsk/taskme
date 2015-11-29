@@ -6,65 +6,20 @@
       .state('tab', {
         url: '/tab',
         abstract: true,
-        templateUrl: 'app/views/bottom-menu.html',
+        templateUrl: 'app/views/menu.html',
         controller: 'MainCtrl'
 
       })
-      .state('tab.dash', {
-        url: '/dash',
-        views: {
-          'tab-dash': {
-            templateUrl: 'app/views/left-menu.html',
-            controller: ''
-          }
-        }
-      })
-      .state('tab.dash.new-task', {
+      .state('tab.new-task', {
         url: "/new-task",
         views: {
           'menuContent' :{
-            templateUrl: "app/parts/createTask/choose_category.html",
+            templateUrl: "app/parts/createTask/views/choose_category.html",
             controller: 'CreateTaskCtrl'
           }
         }
       })
-      .state('tab.dash.welcome', {
-        url: "/welcome",
-        views: {
-          'menuContent' :{
-            templateUrl: "app/views/welcome.html",
-            controller: ''
-          }
-        }
-      })
-      .state('tab.dash.develop', {
-        url: "/develop",
-        views: {
-          'menuContent' :{
-            templateUrl: "app/parts/develop/views/develop.html",
-            controller: ''
-          }
-        }
-      })
-      .state('tab.dash.login', {
-        url: "/login",
-        views: {
-          'menuContent' :{
-            templateUrl: "app/parts/login/views/login.html",
-            controller: ''
-          }
-        }
-      })
-      .state('tab.dash.about', {
-        url: "/about",
-        views: {
-          'menuContent' :{
-            templateUrl: "app/parts/aboutUs/views/about-us.html",
-            controller: ''
-          }
-        }
-      })
-      .state('tab.dash.messages', {
+      .state('tab.messages', {
         url: "/messages",
         views: {
           'menuContent' :{
@@ -73,7 +28,52 @@
           }
         }
       })
-      .state('tab.dash.correspondence', {
+      .state('tab.settings', {
+        url: "/settings",
+        views: {
+          'menuContent' :{
+            templateUrl: "app/parts/settings/views/settings.html",
+            controller: 'ChatsCtrl'
+          }
+        }
+      })
+      .state('tab.welcome', {
+        url: "/welcome",
+        views: {
+          'menuContent' :{
+            templateUrl: "app/views/welcome.html",
+            controller: ''
+          }
+        }
+      })
+      .state('tab.develop', {
+        url: "/develop",
+        views: {
+          'menuContent' :{
+            templateUrl: "app/parts/develop/views/develop.html",
+            controller: ''
+          }
+        }
+      })
+      .state('tab.login', {
+        url: "/login",
+        views: {
+          'menuContent' :{
+            templateUrl: "app/parts/login/views/login.html",
+            controller: ''
+          }
+        }
+      })
+      .state('tab.about', {
+        url: "/about",
+        views: {
+          'menuContent' :{
+            templateUrl: "app/parts/aboutUs/views/about-us.html",
+            controller: ''
+          }
+        }
+      })
+      .state('tab.correspondence', {
         url: "/messages/:chatId",
         views: {
           'menuContent' :{
@@ -82,7 +82,7 @@
           }
         }
       })
-      .state('tab.dash.my-tasks', {
+      .state('tab.my-tasks', {
         url: "/my-tasks",
         views: {
           'menuContent' :{
@@ -91,7 +91,7 @@
           }
         }
       })
-      .state('tab.dash.profile', {
+      .state('tab.profile', {
         url: "/profile",
         views: {
           'menuContent' :{
@@ -100,7 +100,7 @@
           }
         }
       })
-      .state('tab.dash.search', {
+      .state('tab.search', {
         url: "/search",
         views: {
           'menuContent' :{
@@ -109,16 +109,7 @@
           }
         }
       })
-      .state('tab.dash.settings', {
-        url: "/settings",
-        views: {
-          'menuContent' :{
-            templateUrl: "app/parts/settings/views/settings.html",
-            controller: ''
-          }
-        }
-      });
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/tab/dash/new-task');
+    $urlRouterProvider.otherwise('/tab/new-task');
   }]);
 })(angular, window.taskme);
