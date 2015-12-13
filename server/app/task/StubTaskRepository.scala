@@ -38,6 +38,7 @@ class StubTaskRepository extends TaskRepository {
 
   override def createNewTask(task: Task): String = {
     // todo check category in service
+    task.category
     val newId = UUID.randomUUID().toString
     tasks += newId -> task.copy(id = newId, originator = defaultOriginator)
     newId
@@ -47,7 +48,7 @@ class StubTaskRepository extends TaskRepository {
     tasks.values.toList.sortBy(_.updated)
   }
 
-  override def getAllTasks(categoryId: String): List[Task] = {
+  override def getTasks(categoryId: String): List[Task] = {
     tasks.values.toList.filter(categoryId equals _.category.id).sortBy(_.updated)
   }
 
@@ -64,4 +65,11 @@ class StubTaskRepository extends TaskRepository {
       t.id
     })
   }
+
+  override def deleteTask(taskId: String): Option[Task] = {
+    val taskById = tasks.get(taskId)
+    taskById.foreach(t => tasks = tasks - taskId)
+    taskById
+  }
+
 }

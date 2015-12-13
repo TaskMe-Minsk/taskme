@@ -37,7 +37,7 @@ object TaskController extends Controller {
   }
 
   def taskList(categoryId: String) = Action {
-    Ok(gson.toJson( taskRepo.getAllTasks(categoryId) ))
+    Ok(gson.toJson( taskRepo.getTasks(categoryId) ))
   }
 
   def editTask = Action { request =>
@@ -47,5 +47,12 @@ object TaskController extends Controller {
     }).getOrElse(
       BadRequest("There is no task entity in the request body")
     )
+  }
+
+  def deleteTask(taskId: String) = Action { request =>
+    taskRepo.deleteTask(taskId) match {
+      case Some(t) => Ok(s"Task ${t.id} has been removed")
+      case None => NotFound
+    }
   }
 }
