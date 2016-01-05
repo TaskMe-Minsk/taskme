@@ -1,3 +1,4 @@
+//TODO: remove
 var app = angular.module('taskme.services', []);
 
 app.factory('Chats', function() {

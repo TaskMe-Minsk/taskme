@@ -1,7 +1,7 @@
 <ion-view view-title="Новая задача">
     <ion-content>
         <ion-list>
-            <ion-item class="item" ng-repeat="category in categories" href="#/tab/create/{{category.id}}">
+            <ion-item class="item" ng-repeat="category in categories" ng-click="chooseCategory(category)">
                 <h2>{{category.name}}</h2>
             </ion-item>
         </ion-list>

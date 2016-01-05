@@ -5,6 +5,7 @@
 
       return {
         createTask: function(task) {
+          return;
         }
 
 

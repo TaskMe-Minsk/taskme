@@ -1,0 +1,17 @@
+<ion-view view-title="Новая задача">
+    <ion-content>
+        <h3>Шаг 1/4</h3>
+        <div class="step">
+            <label>Опишите суть задачи в двух словах</label>
+            <input type="text" ng-model="task.title" placeholder="Заголовок" ng-required/>
+            <label>Опишите как можно подробнее, что нужно сделать</label>
+            <textarea ng-model="task.details" placeholder="Детали"></textarea>
+        </div>
+    </ion-content>
+
+    <ion-footer-bar>
+        <button class="button button-positive next-button" ng-click="goToSetDate()">
+            Далее
+        </button>
+    </ion-footer-bar>
+</ion-view>
