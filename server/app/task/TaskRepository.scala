@@ -26,5 +26,9 @@ trait TaskRepository {
    * Get list of tasks previews filtered by category it belongs to &
    * ordered by date (created or updated). Newer tasks would be on the top
    */
-  def getAllTasks(categoryId: String): List[Task]
+  def getTasks(categoryId: String): List[Task]
+
+  def editTask(updatedTask: Task): Option[String]
+
+  def deleteTask(taskId: String): Option[Task]
 }
