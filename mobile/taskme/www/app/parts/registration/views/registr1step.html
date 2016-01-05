@@ -1,4 +1,4 @@
-<ion-view title="Login">
+<ion-view title="Registration">
     <ion-nav-buttons side="left">
         <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
     </ion-nav-buttons>
@@ -12,23 +12,15 @@
                 <span class="input-label">Password</span>
                 <input type="password">
             </label>
+            <label class="item item-input">
+                <span class="input-label">Re Password</span>
+                <input type="password">
+            </label>
         </div>
         <div class="list list-inset">
-            <button class="button button-full button-positive">
-                Sign In
+            <button class="button button-full button-positive" ng-click="navigateTo('tab.dash.registration2')">
+                Next
             </button>
-            <button class="button button-full button-positive">
-                Sign In By Vkontakte
-            </button>
-            <button class="button button-full button-positive">
-                Sign In By Facebook
-            </button>
-            <button class="button button-full button-positive" ng-click="navigateTo('tab.dash.registration')">
-                Registration
-            </button>
-        </div>
-        <div class="row center">
-          <div class="col col-center"><a class="">Forgot Password?</a></div>
         </div>
     </ion-content>
 </ion-view>

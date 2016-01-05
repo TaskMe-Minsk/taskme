@@ -29,8 +29,6 @@ app.factory("TaskService", function(){
         }
     }
 
-
-
 });
 
 app.factory('Chats', function() {

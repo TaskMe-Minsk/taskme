@@ -1,4 +1,4 @@
-angular.module('taskme', ['ionic', 'taskme.controllers', 'taskme.services'])
+angular.module('taskme', ['taskme.controllers', 'taskme.services', 'ionic'])
 
     .config(function ($stateProvider, $urlRouterProvider) {
 
@@ -8,7 +8,7 @@ angular.module('taskme', ['ionic', 'taskme.controllers', 'taskme.services'])
                 url: '/tab',
                 abstract: true,
                 templateUrl: 'app/views/bottom-menu.html',
-                controller: 'MainCtrl'
+                controller: ''
             
             })
             .state('tab.dash', {
@@ -43,6 +43,33 @@ angular.module('taskme', ['ionic', 'taskme.controllers', 'taskme.services'])
               views: {
                 'menuContent' :{
                   templateUrl: "app/parts/login/views/login.html",
+                  controller: ''
+                }
+              }
+            })
+            .state('tab.dash.registration', { 
+              url: "/registration",
+              views: {
+                'menuContent' :{
+                  templateUrl: "app/parts/registration/views/registr1step.html",
+                  controller: ''
+                }
+              }
+            })
+            .state('tab.dash.registration2', { 
+              url: "/registration2",
+              views: {
+                'menuContent' :{
+                  templateUrl: "app/parts/registration/views/registr2step.html",
+                  controller: ''
+                }
+              }
+            })
+            .state('tab.dash.registration3', { 
+              url: "/registration3",
+              views: {
+                'menuContent' :{
+                  templateUrl: "app/parts/registration/views/registr3step.html",
                   controller: ''
                 }
               }
