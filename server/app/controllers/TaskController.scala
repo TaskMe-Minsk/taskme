@@ -33,11 +33,11 @@ object TaskController extends Controller {
   }
 
   def allTaskList() = Action {
-    Ok(gson.toJson( taskRepo.getAllTasks ))
+    Ok(gson.toJson( taskRepo.getAllTasks.toArray ))
   }
 
   def taskList(categoryId: String) = Action {
-    Ok(gson.toJson( taskRepo.getTasks(categoryId) ))
+    Ok(gson.toJson( taskRepo.getTasks(categoryId).toArray ))
   }
 
   def editTask = Action { request =>
