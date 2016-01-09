@@ -19,6 +19,7 @@ class StubTaskRepository extends TaskRepository {
     System.currentTimeMillis(),
     defaultOriginator,
     defaultCategory,
+    TaskStatus.Draft,
     "Escape Tatooine",
     "Looking for an exceptional band with a really fast ship to help me leave this planet anonymously",
     defaultLocation,
@@ -72,4 +73,11 @@ class StubTaskRepository extends TaskRepository {
     taskById
   }
 
+  override def changeTaskStatus(id: String, status: TaskStatus): Option[Task] = {
+    tasks.get(id).map(t => {
+      val updatedTask = t.copy(status = status, updated = System.currentTimeMillis())
+      tasks += t.id -> updatedTask
+      updatedTask
+    })
+  }
 }

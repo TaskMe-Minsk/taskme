@@ -1,11 +1,13 @@
 package task
 
-import model.Task
+import model.{TaskStatus, Task}
 
 /**
  * @author Ivan Zhamoidzin
  */
 trait TaskRepository {
+  def changeTaskStatus(id: String, status: TaskStatus): Option[Task]
+
   /**
    * Return full task description by its ID
    */

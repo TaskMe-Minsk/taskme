@@ -2,7 +2,7 @@ package controllers
 
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import model.Task
+import model.{TaskStatus, Task}
 import play.api.mvc
 import play.api.mvc._
 import task.{StubTaskRepository, TaskRepository}
@@ -46,6 +46,16 @@ object TaskController extends Controller {
       taskRepo.editTask(task).fold( NotFound("") ) { id => Ok("") }
     }).getOrElse(
       BadRequest("There is no task entity in the request body")
+    )
+  }
+
+  def changeTaskStatus(id: String) = Action { request =>
+    request.body.asJson.map( bodyJsVal => {
+      val status: TaskStatus = gson.fromJson(bodyJsVal.toString(), classOf[TaskStatus])
+      // todo not sure about OK status code + whole task entity in the response
+      taskRepo.changeTaskStatus(id, status).fold( NotFound("") ) { task => Ok(task) }
+    }).getOrElse(
+      BadRequest("There is no task status entity in the request body")
     )
   }
 
